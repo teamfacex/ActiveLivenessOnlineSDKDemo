@@ -21,6 +21,9 @@ class ActiveLiveness : AppCompatActivity(), LivenessListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_active_liveness)
+      //TODO pls update your file.json file in assets folder if not find file.json pls follow below
+      // Project--->app--->  src--->main--->assets--->file.json
+
         liveness = Liveness(this, R.id.main_holder)
         var start = this.findViewById<Button>(R.id.start)
         start.setOnClickListener {
@@ -33,8 +36,10 @@ class ActiveLiveness : AppCompatActivity(), LivenessListener {
         Dexter.withActivity(this).withPermissions(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE).withListener(object : MultiplePermissionsListener {
             override fun onPermissionsChecked(p0: MultiplePermissionsReport?) {
                 if (p0?.areAllPermissionsGranted()!!) {
+                    //can add conditions
                     liveness.Eyes = true
                     liveness.Smile = true
+                    // to start sdk method or start camera
                     liveness.startLiveness()
                 } else {
                     onCheckPermission();
@@ -48,8 +53,8 @@ class ActiveLiveness : AppCompatActivity(), LivenessListener {
     }
 
     override fun livenessSuccess(p0: Boolean?, p1: Bitmap?) {
+        //if actions success here you will get output as image
         var iv = findViewById<ImageView>(R.id.output)
-
         iv.setImageBitmap(p1)
     }
 
