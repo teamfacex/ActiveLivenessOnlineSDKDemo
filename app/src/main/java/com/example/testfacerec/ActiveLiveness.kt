@@ -21,8 +21,8 @@ class ActiveLiveness : AppCompatActivity(), LivenessListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_active_liveness)
-      //TODO pls update your file.json file in assets folder if not find file.json pls follow below
-      // Project--->app--->  src--->main--->assets--->file.json
+      //TODO pls replace your file.json file in assets folder if not find file.json pls follow below
+      // Project--->app--->  src--->main--->assets--->file.json //please remove above two line after replacing your file.json file
 
         liveness = Liveness(this, R.id.main_holder)
         var start = this.findViewById<Button>(R.id.start)
